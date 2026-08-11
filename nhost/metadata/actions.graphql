@@ -1,3 +1,6 @@
+scalar uuid
+scalar jsonb
+
 type Mutation {
   triggerWorkflowRun(workflow_id: uuid!): TriggerWorkflowRunOutput
   approveStep(step_run_id: uuid!): ApproveStepOutput
