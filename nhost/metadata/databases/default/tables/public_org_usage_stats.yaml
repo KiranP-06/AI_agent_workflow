@@ -1,0 +1,21 @@
+table:
+  schema: public
+  name: org_usage_stats
+  is_enum: false
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - org_id
+        - org_name
+        - quota_limit
+        - quota_used
+        - quota_remaining
+        - quota_period_start
+        - total_runs_this_period
+        - avg_run_duration_seconds
+        - completed_runs
+        - failed_runs
+      filter:
+        org_id:
+          _in: X-Hasura-User-Id

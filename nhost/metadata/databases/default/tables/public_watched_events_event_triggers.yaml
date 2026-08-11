@@ -1,0 +1,15 @@
+- name: watched_events_trigger
+  definition:
+    enable_manual: true
+    insert:
+      columns: "*"
+    table:
+      name: watched_events
+      schema: public
+  retry_conf:
+    interval_sec: 10
+    num_retries: 3
+    timeout_sec: 60
+  webhook: "{{NHOST_FUNCTIONS_URL}}/v1/db-event-trigger-handler"
+  headers: []
+  comment: Fires when a new row is inserted into watched_events, starts matching workflow runs

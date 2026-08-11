@@ -1,0 +1,20 @@
+table:
+  schema: public
+  name: watched_events
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - event_type
+        - payload
+        - processed
+        - created_at
+      filter: {}
+insert_permissions:
+  - role: user
+    permission:
+      columns:
+        - event_type
+        - payload
+      check: {}

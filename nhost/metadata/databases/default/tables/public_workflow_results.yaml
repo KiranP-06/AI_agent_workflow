@@ -1,0 +1,48 @@
+table:
+  schema: public
+  name: workflow_results
+object_relationships:
+  - name: workflow
+    using:
+      foreign_key_constraint_on: workflow_id
+  - name: run
+    using:
+      foreign_key_constraint_on: run_id
+  - name: step
+    using:
+      foreign_key_constraint_on: step_id
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - workflow_id
+        - run_id
+        - step_id
+        - result_type
+        - data
+        - created_at
+      filter:
+        workflow:
+          organization:
+            members:
+              user_id:
+                _eq: X-Hasura-User-Id
+insert_permissions:
+  - role: user
+    permission:
+      columns:
+        - workflow_id
+        - run_id
+        - step_id
+        - result_type
+        - data
+      check:
+        workflow:
+          organization:
+            members:
+              _and:
+                - user_id:
+                    _eq: X-Hasura-User-Id
+                - role:
+                    _eq: owner
