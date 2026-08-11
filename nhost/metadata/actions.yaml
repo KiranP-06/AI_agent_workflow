@@ -2,7 +2,7 @@ actions:
   - name: triggerWorkflowRun
     definition:
       kind: synchronous
-      handler: '{{NHOST_FUNCTIONS_URL}}/v1/trigger-workflow-run'
+      handler: '{{NHOST_FUNCTIONS_URL}}/trigger-workflow-run'
       forward_client_headers: true
       timeout: 120
     permissions:
@@ -11,7 +11,7 @@ actions:
   - name: approveStep
     definition:
       kind: synchronous
-      handler: '{{NHOST_FUNCTIONS_URL}}/v1/approve-step'
+      handler: '{{NHOST_FUNCTIONS_URL}}/approve-step'
       forward_client_headers: true
       timeout: 120
     permissions:
@@ -20,7 +20,7 @@ actions:
   - name: webhookTrigger
     definition:
       kind: synchronous
-      handler: '{{NHOST_FUNCTIONS_URL}}/v1/webhook-trigger'
+      handler: '{{NHOST_FUNCTIONS_URL}}/webhook-trigger'
       forward_client_headers: false
       timeout: 120
     comment: Inbound webhook endpoint to trigger a workflow run externally

@@ -10,6 +10,6 @@
     interval_sec: 10
     num_retries: 3
     timeout_sec: 60
-  webhook: "{{NHOST_FUNCTIONS_URL}}/v1/db-event-trigger-handler"
+  webhook: "{{NHOST_FUNCTIONS_URL}}/db-event-trigger-handler"
   headers: []
   comment: Fires when a new row is inserted into watched_events, starts matching workflow runs
