@@ -19,13 +19,13 @@ export default function Login() {
 
     try {
       if (isSignUp) {
-        const res = await nhost.auth.signUp({ email, password });
-        if (res.error) throw res.error;
+        const { session, error } = await nhost.auth.signUp({ email, password });
+        if (error) throw error;
         // Since we disabled email verification in config, it logs them in
         router.push('/dashboard');
       } else {
-        const res = await nhost.auth.signIn({ email, password });
-        if (res.error) throw res.error;
+        const { session, error } = await nhost.auth.signIn({ email, password });
+        if (error) throw error;
         router.push('/dashboard');
       }
     } catch (err: any) {
