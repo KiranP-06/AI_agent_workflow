@@ -16,6 +16,4 @@ select_permissions:
         - avg_run_duration_seconds
         - completed_runs
         - failed_runs
-      filter:
-        org_id:
-          _in: X-Hasura-User-Id
+      filter: {}
