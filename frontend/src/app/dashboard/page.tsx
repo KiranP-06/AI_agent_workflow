@@ -72,7 +72,7 @@ export default function Dashboard() {
   };
 
   const handleSignOut = async () => {
-    await nhost.auth.signOut({ all: false });
+    await nhost.auth.signOut();
     router.push('/');
   };
 
