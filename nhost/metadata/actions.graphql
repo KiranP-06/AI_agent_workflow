@@ -7,6 +7,20 @@ type Mutation {
   webhookTrigger(workflow_id: uuid!, webhook_secret: String!, payload: jsonb): WebhookTriggerOutput
 }
 
+input TriggerWorkflowRunInput {
+  workflow_id: uuid!
+}
+
+input ApproveStepInput {
+  step_run_id: uuid!
+}
+
+input WebhookTriggerInput {
+  workflow_id: uuid!
+  webhook_secret: String!
+  payload: jsonb
+}
+
 type TriggerWorkflowRunOutput {
   run_id: uuid!
   status: String!
